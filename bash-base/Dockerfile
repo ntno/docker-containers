@@ -8,4 +8,7 @@ RUN apk update && apk add --no-cache \
 	jq \ 
 	git
 
+ENV HOME /root
 WORKDIR /usr/src
+
+CMD ["bash", "-l"]
