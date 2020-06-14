@@ -7,12 +7,13 @@ RUN apk update && apk add --no-cache \
 	make \
 	wget \
 	curl \
-    unzip \
-    zip \
+	unzip \
+	zip \
 	jq \
 	git \
 	gettext \
-	python3 
+	python3 \
+	groff
 
 #set up python
 ENV PYTHONUNBUFFERED=1
