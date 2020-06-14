@@ -6,7 +6,8 @@ RUN apk update && apk add --no-cache \
 	wget \ 
 	curl \ 
 	jq \ 
-	git
+	git \
+	gettext
 
 ENV HOME /root
 WORKDIR /usr/src
