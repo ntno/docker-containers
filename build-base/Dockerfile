@@ -3,6 +3,7 @@ FROM alpine:3.12.3
 ENV HOME /root
 
 RUN apk update && apk add --no-cache \
+	binutils \
 	bash \
 	make \
 	wget \
@@ -15,27 +16,32 @@ RUN apk update && apk add --no-cache \
 	python3 \
 	groff
 
+# install glibc compatibility for alpine
+# see https://github.com/aws/aws-cli/issues/4685#issuecomment-615872019
+ENV GLIBC_VER=2.31-r0
+RUN	curl -sL https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub -o /etc/apk/keys/sgerrand.rsa.pub && \
+	curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-${GLIBC_VER}.apk && \
+	curl -sLO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VER}/glibc-bin-${GLIBC_VER}.apk && \
+	apk add --no-cache \
+		glibc-${GLIBC_VER}.apk \
+		glibc-bin-${GLIBC_VER}.apk
+
 #set up python
 ENV PYTHONUNBUFFERED=1
-RUN if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi 
+RUN if [ ! -e /usr/bin/python ]; then ln -sf python3 /usr/bin/python ; fi
 
 RUN python3 -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --no-cache --upgrade pip setuptools wheel 
-    
+	rm -r /usr/lib/python*/ensurepip && \
+	pip3 install --no-cache --upgrade pip setuptools wheel
 
 RUN if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
-
-#install awscli
-RUN pip3 install awscli --upgrade --user
-COPY .bash_profile $HOME/.bash_profile
 
 #install terraform
 ENV TERRAFORM_VERSION=0.14.5
 RUN cd /usr/local/bin && \
-    curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
-    unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
-    rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+	curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+	unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
+	rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
 #install buildenv
 ENV BUILDENV_RELEASE=0.5.3
@@ -48,6 +54,14 @@ RUN cd /usr/local/bin && \
 	chmod 755 /usr/local/bin/buildenv && \
 	rm -rf /tmp/buildenv*
 
-WORKDIR /usr/src
+#install awscli v2
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip" && \
+	cd /tmp && \
+	unzip awscliv2.zip && \
+	./aws/install -i /usr/local/bin && \
+	rm -rf /tmp/aws*
 
+
+COPY .bash_profile $HOME/.bash_profile
+WORKDIR /usr/src
 CMD ["bash", "-l"]
