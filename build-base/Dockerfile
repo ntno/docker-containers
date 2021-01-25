@@ -1,4 +1,4 @@
-FROM alpine:3.10.3
+FROM alpine:3.12.3
 
 ENV HOME /root
 
@@ -31,7 +31,7 @@ RUN pip3 install awscli --upgrade --user
 COPY .bash_profile $HOME/.bash_profile
 
 #install terraform
-ENV TERRAFORM_VERSION=0.12.26
+ENV TERRAFORM_VERSION=0.14.5
 RUN cd /usr/local/bin && \
     curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
     unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \

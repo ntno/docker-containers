@@ -1,4 +1,4 @@
-FROM ntno/bash-base:latest
+FROM ntno/bash-base:1.0.0
 
 RUN apk update 
 
