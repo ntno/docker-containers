@@ -13,5 +13,5 @@ launch:
 
 check-app:
 ifndef app
-$(error app is not set)
+	$(error app is not set)
 endif
