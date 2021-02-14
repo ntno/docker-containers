@@ -14,7 +14,9 @@ RUN apk update && apk add --no-cache \
 	git \
 	gettext \
 	python3 \
-	groff
+	groff \
+	nodejs \
+	nodejs-npm
 
 # install glibc compatibility for alpine
 # see https://github.com/aws/aws-cli/issues/4685#issuecomment-615872019
