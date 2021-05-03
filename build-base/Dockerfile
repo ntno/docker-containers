@@ -3,6 +3,10 @@ FROM alpine:3.12.3
 ENV HOME /root
 
 RUN apk update && apk add --no-cache \
+	build-base \
+	python3-dev \
+	libffi-dev \
+	openssl-dev \
 	binutils \
 	bash \
 	make \
@@ -14,6 +18,7 @@ RUN apk update && apk add --no-cache \
 	git \
 	gettext \
 	python3 \
+	py3-virtualenv \
 	groff \
 	nodejs \
 	nodejs-npm
@@ -63,6 +68,15 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/aws
 	./aws/install -i /usr/local/bin && \
 	rm -rf /tmp/aws*
 
+#install ebscli
+RUN cd /tmp && \
+	git clone "https://github.com/aws/aws-elastic-beanstalk-cli-setup.git" && \
+	export CRYPTOGRAPHY_DONT_BUILD_RUST=1 && \
+	python aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py  --python-installation /usr/bin/python && \
+	rm -rf /tmp/aws-elastic-beanstalk-cli-setup
+
+#link /usr/bin/eb to the elastic beanstalk cli executale
+RUN if [ ! -e /usr/bin/eb ]; then ln -sf /root/.ebcli-virtual-env/executables/eb /usr/bin/eb ; fi
 
 COPY .bash_profile $HOME/.bash_profile
 WORKDIR /usr/src
