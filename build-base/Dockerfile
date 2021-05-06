@@ -75,6 +75,7 @@ RUN cd /tmp && \
 #link /usr/bin/eb to the elastic beanstalk cli executale
 RUN if [ ! -e /usr/bin/eb ]; then ln -sf /root/.ebcli-virtual-env/executables/eb /usr/bin/eb ; fi
 
+RUN curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > $HOME/.git-prompt.sh
 COPY .bash_profile $HOME/.bash_profile
 WORKDIR /usr/src
 CMD ["bash", "-l"]
