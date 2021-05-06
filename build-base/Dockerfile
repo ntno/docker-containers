@@ -1,4 +1,4 @@
-FROM alpine:3.12.3
+FROM node:14.16.1-alpine3.12
 
 ENV HOME /root
 
@@ -19,9 +19,7 @@ RUN apk update && apk add --no-cache \
 	gettext \
 	python3 \
 	py3-virtualenv \
-	groff \
-	nodejs \
-	nodejs-npm
+	groff
 
 # install glibc compatibility for alpine
 # see https://github.com/aws/aws-cli/issues/4685#issuecomment-615872019
@@ -51,10 +49,9 @@ RUN cd /usr/local/bin && \
 	rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
 #install buildenv
-ENV BUILDENV_RELEASE=0.5.3
-ENV BUILDENV_VERSION=0.5.2
+ENV BUILDENV_RELEASE=0.5.7
 RUN cd /usr/local/bin && \
-	wget -O /tmp/buildenv.tar.gz https://github.com/Comcast/Buildenv-Tool/releases/download/${BUILDENV_RELEASE}/buildenv-linux_amd64-${BUILDENV_VERSION}.tar.gz && \
+	wget -O /tmp/buildenv.tar.gz https://github.com/Comcast/Buildenv-Tool/releases/download/${BUILDENV_RELEASE}/buildenv-linux_amd64-${BUILDENV_RELEASE}.tar.gz && \
 	tar xzvf /tmp/buildenv.tar.gz -C /tmp && \
 	mv /tmp/buildenv /usr/local/bin/buildenv && \ 
 	chown root:root /usr/local/bin/buildenv && \ 
@@ -78,6 +75,7 @@ RUN cd /tmp && \
 #link /usr/bin/eb to the elastic beanstalk cli executale
 RUN if [ ! -e /usr/bin/eb ]; then ln -sf /root/.ebcli-virtual-env/executables/eb /usr/bin/eb ; fi
 
+RUN curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > $HOME/.git-prompt.sh
 COPY .bash_profile $HOME/.bash_profile
 WORKDIR /usr/src
 CMD ["bash", "-l"]
