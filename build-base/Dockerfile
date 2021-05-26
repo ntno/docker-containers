@@ -75,6 +75,20 @@ RUN cd /tmp && \
 #link /usr/bin/eb to the elastic beanstalk cli executale
 RUN if [ ! -e /usr/bin/eb ]; then ln -sf /root/.ebcli-virtual-env/executables/eb /usr/bin/eb ; fi
 
+#install packer
+#https://github.com/hashicorp/docker-hub-images/blob/master/packer/Dockerfile-light
+ENV PACKER_VERSION=1.7.2
+ENV PACKER_SHA256SUM=9429c3a6f80b406dbddb9b30a4e468aeac59ab6ae4d09618c8d70c4f4188442e
+
+ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip ./
+ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_SHA256SUMS ./
+
+RUN sed -i '/.*linux_amd64.zip/!d' packer_${PACKER_VERSION}_SHA256SUMS
+RUN sha256sum -cs packer_${PACKER_VERSION}_SHA256SUMS
+RUN unzip packer_${PACKER_VERSION}_linux_amd64.zip -d /bin
+RUN rm -f packer_${PACKER_VERSION}_linux_amd64.zip
+
+
 RUN curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > $HOME/.git-prompt.sh
 COPY .bash_profile $HOME/.bash_profile
 WORKDIR /usr/src
