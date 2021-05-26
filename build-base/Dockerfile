@@ -88,8 +88,5 @@ RUN sha256sum -cs packer_${PACKER_VERSION}_SHA256SUMS
 RUN unzip packer_${PACKER_VERSION}_linux_amd64.zip -d /bin
 RUN rm -f packer_${PACKER_VERSION}_linux_amd64.zip
 
-
-RUN curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > $HOME/.git-prompt.sh
-COPY .bash_profile $HOME/.bash_profile
 WORKDIR /usr/src
 CMD ["bash", "-l"]
