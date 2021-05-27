@@ -1,69 +1,35 @@
 package:
   binutils:
     installed: true
-    versions:
-    - 2.35.1-1ubuntu1
   build-essential:
     installed: true
-    versions:
-    - 12.8ubuntu3
   curl:
     installed: true
-    versions:
-    - 7.68.0-1ubuntu4.3
   gettext:
     installed: true
-    versions:
-    - 0.19.8.1-10build1
   git:
     installed: true
-    versions:
-    - 1:2.27.0-1ubuntu1.1
   groff:
     installed: true
-    versions:
-    - 1.22.4-5
   jq:
     installed: true
-    versions:
-    - 1.6-1ubuntu0.20.10.1
   less:
     installed: true
-    versions:
-    - 551-2
   libffi-dev:
     installed: true
-    versions:
-    - 3.4~20200819gead65ca871-0ubuntu3
   libssl-dev:
     installed: true
-    versions:
-    - 1.1.1f-1ubuntu4.4
   make:
     installed: true
-    versions:
-    - 4.3-4ubuntu1
   python3-dev:
     installed: true
-    versions:
-    - 3.8.6-0ubuntu1
   python3-pip:
     installed: true
-    versions:
-    - 20.1.1-2
   python3-venv:
     installed: true
-    versions:
-    - 3.8.6-0ubuntu1
   unzip:
     installed: true
-    versions:
-    - 6.0-25ubuntu1
   wget:
     installed: true
-    versions:
-    - 1.20.3-1ubuntu1
   zip:
     installed: true
-    versions:
-    - 3.0-11build1
