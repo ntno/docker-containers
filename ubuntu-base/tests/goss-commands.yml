@@ -40,3 +40,19 @@ command:
     stderr: []
     timeout: 10000
     skip: false    
+  goss-version:
+    exit-status: 0
+    exec: "goss --version"
+    stdout:
+    - v0.3.10
+    stderr: []
+    timeout: 10000
+    skip: false  
+  eb-cli-version:
+    exit-status: 0
+    exec: "eb --version"
+    stdout:
+    - EB CLI 3.19.4
+    stderr: []
+    timeout: 10000
+    skip: false  
