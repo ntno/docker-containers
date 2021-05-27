@@ -1,0 +1,24 @@
+command:
+  python-version:
+    # required attributes
+    exit-status: 0
+    # defaults to hash key
+    exec: "python --version"
+    # optional attributes
+    stdout:
+    - Python 3
+    stderr: []
+    timeout: 10000 # in milliseconds
+    skip: false
+  pip-version:
+    # required attributes
+    exit-status: 0
+    # defaults to hash key
+    exec: "pip --version"
+    # optional attributes
+    stdout:
+    - pip
+    - python
+    stderr: []
+    timeout: 10000 # in milliseconds
+    skip: false    
