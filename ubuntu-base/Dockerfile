@@ -1,7 +1,5 @@
 FROM ubuntu:groovy
 
-
-#libncurses5-dev libgdbm-dev libnss3-dev libreadline-dev
 RUN apt-get update && apt-get -y upgrade && apt-get -y install \
     binutils \
     build-essential \
@@ -64,7 +62,6 @@ RUN cd /tmp && \
     rm -rf /tmp/aws-elastic-beanstalk-cli-setup
 RUN if [ ! -e /usr/bin/eb ]; then ln -sf /root/.ebcli-virtual-env/executables/eb /usr/bin/eb ; fi
 
-
 # Goss
 # See https://github.com/aelsabbahy/goss/releases for release versions
 ENV GOSS_VERSION=v0.3.10
@@ -80,7 +77,6 @@ RUN cd /usr/local/bin && \
 	chown root:root /usr/local/bin/buildenv && \ 
 	chmod 755 /usr/local/bin/buildenv && \
 	rm -rf /tmp/buildenv*
-
 
 # Configure test directory
 RUN mkdir -p /usr/local/goss-tests
