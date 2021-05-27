@@ -48,10 +48,9 @@ RUN curl -L "https://github.com/aelsabbahy/goss/releases/download/${DGOSS_VERSIO
 RUN chmod +rx /usr/local/bin/dgoss
 
 RUN mkdir -p /usr/local/goss-tests
-COPY goss-commands.yml /usr/local/goss-tests
-COPY goss-packages.yml /usr/local/goss-tests
-COPY goss.yaml /usr/local/goss-tests
-COPY run-goss-tests.sh /usr/local/goss-tests
+COPY tests/goss-commands.yml /usr/local/goss-tests
+COPY tests/goss-packages.yml /usr/local/goss-tests
+COPY tests/goss.yaml /usr/local/goss-tests
 
 WORKDIR /usr/src
 CMD ["bash", "-l"]
