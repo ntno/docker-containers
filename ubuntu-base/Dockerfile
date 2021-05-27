@@ -62,6 +62,17 @@ RUN cd /tmp && \
     rm -rf /tmp/aws-elastic-beanstalk-cli-setup
 RUN if [ ! -e /usr/bin/eb ]; then ln -sf /root/.ebcli-virtual-env/executables/eb /usr/bin/eb ; fi
 
+#6.14.12
+# ENV NODE_VERSION=v14.16.1
+# ENV NPM_VERSION=6.14
+# Node / NPM
+# RUN apt-get -y install nodejs
+RUN cd /tmp && \
+    curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh && \ 
+    bash nodesource_setup.sh && \
+    rm nodesource_setup.sh
+RUN apt-get update && apt-get -y install nodejs
+
 # Goss
 # See https://github.com/aelsabbahy/goss/releases for release versions
 ENV GOSS_VERSION=v0.3.10

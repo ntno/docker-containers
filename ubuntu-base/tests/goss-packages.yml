@@ -31,6 +31,8 @@ package:
     installed: true
   make:
     installed: true
+  nodejs:
+    installed: true
   python3-dev:
     installed: true
   python3-pip:
