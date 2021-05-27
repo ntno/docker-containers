@@ -56,3 +56,11 @@ command:
     stderr: []
     timeout: 10000
     skip: false  
+  session-manager-plugin:
+    exit-status: 0
+    exec: "session-manager-plugin"
+    stdout:
+    - plugin was installed successfully
+    stderr: []
+    timeout: 10000
+    skip: false  
