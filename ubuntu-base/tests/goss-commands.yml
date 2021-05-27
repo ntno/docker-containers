@@ -63,4 +63,20 @@ command:
     - plugin was installed successfully
     stderr: []
     timeout: 10000
-    skip: false  
+    skip: false
+  node-version:
+    exit-status: 0
+    exec: "node --version"
+    stdout:
+    - v14.
+    stderr: []
+    timeout: 10000
+    skip: false
+  npm-version:
+    exit-status: 0
+    exec: "npm --version"
+    stdout:
+    - 6.14
+    stderr: []
+    timeout: 10000
+    skip: false
