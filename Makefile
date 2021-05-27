@@ -17,7 +17,6 @@ test: build
 	docker run --rm -id --name $(test_container_name) $(tag) /bin/bash 
 	docker exec -i $(test_container_name) /bin/bash < run-goss-tests.sh
 	
-
 check-app:
 ifndef app
 	$(error app is not set)
