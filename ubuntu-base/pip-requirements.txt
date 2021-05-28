@@ -1,0 +1,3 @@
+molecule[ansible]
+molecule[lint]
+molecule-ec2
