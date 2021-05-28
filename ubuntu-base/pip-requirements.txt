@@ -1,3 +1,4 @@
+boto3
 molecule[ansible]
 molecule[lint]
 molecule-ec2
