@@ -20,6 +20,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install \
     python3-dev \
     python3-pip \
     python3-venv \
+    screen \
     software-properties-common \
     unzip \
     vim \
@@ -85,11 +86,13 @@ RUN cd /usr/local/bin && \
 	chmod 755 /usr/local/bin/buildenv && \
 	rm -rf /tmp/buildenv*
 
+# Configure SSH Config for AWS Session Manager
+RUN mkdir -p /root/.ssh
+COPY ssh.config /root/.ssh/config
+
 # Configure test directory
 RUN mkdir -p /usr/local/goss-tests
-COPY tests/goss-commands.yml /usr/local/goss-tests
-COPY tests/goss-packages.yml /usr/local/goss-tests
-COPY tests/goss.yaml /usr/local/goss-tests
+COPY tests/* /usr/local/goss-tests
 
 WORKDIR /usr/src
 CMD ["bash", "-l"]
