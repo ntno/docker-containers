@@ -1,0 +1,7 @@
+file:
+  /root/.ssh/config:
+    exists: true
+    mode: "0600"
+    skip: false
+    contains:
+    - AWS-StartSSHSession
