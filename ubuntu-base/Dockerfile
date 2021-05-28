@@ -97,7 +97,7 @@ RUN mkdir -p ${ANSIBLE_VENV_DIR}
 COPY pip-requirements.txt ${ANSIBLE_VENV_DIR}/requirements.txt 
 RUN cd ${ANSIBLE_VENV_DIR} && \
 	virtualenv venv && \
-    chmod +x ./venv/bin/activate && \
+	chmod +x ./venv/bin/activate && \
 	./venv/bin/activate && \
 	python3 -m pip install -r requirements.txt
 
