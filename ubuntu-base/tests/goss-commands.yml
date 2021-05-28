@@ -80,3 +80,20 @@ command:
     stderr: []
     timeout: 10000
     skip: false
+  ansible-venv-version:
+    exit-status: 0
+    exec: "source /usr/local/ansible-venv/venv/bin/activate ; ansible --version"
+    stdout:
+    - core 2.11.1
+    stderr: []
+    timeout: 10000
+    skip: false
+  molecule-venv-version:
+    exit-status: 0
+    exec: "source /usr/local/ansible-venv/venv/bin/activate ; molecule --version"
+    stdout:
+    - molecule 3.3.2 using python 3.8
+    - ansible:2.11.1
+    stderr: []
+    timeout: 10000
+    skip: false    
