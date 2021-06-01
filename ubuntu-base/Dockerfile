@@ -100,14 +100,6 @@ RUN cd ${ANSIBLE_VENV_DIR} && \
 	chmod +x ./venv/bin/activate && \
 	./venv/bin/activate && \
 	python3 -m pip install -r requirements.txt
-# python3 -m pip install --user boto 
-# boto3 
-# awscliv2
-# molecule[ansible,lint]
-# molecule-ec2
-#/root/.local/bin
-#pip install git+https://github.com/wtsi-hgi/boto@fix/3561-py3-proxy-ssl-connection
-#requests[security] idna pyopenssl pyasn1 ndg-httpsclient
 
 # Configure test directory
 RUN mkdir -p /usr/local/goss-tests
