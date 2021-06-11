@@ -104,7 +104,6 @@ RUN chmod 600 /root/.ssh/config
 # Configure .bash_profile
 COPY .bash_profile /root/.bash_profile
 COPY .bash_aliases /root/.bash_aliases
-RUN rm /root/.bashrc
 
 # Configure test directory
 RUN mkdir -p /usr/local/goss-tests
