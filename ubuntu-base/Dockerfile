@@ -86,11 +86,6 @@ RUN cd /usr/local/bin && \
 	chmod 755 /usr/local/bin/buildenv && \
 	rm -rf /tmp/buildenv*
 
-# Configure SSH
-RUN mkdir -p /root/.ssh
-COPY ssh.config /root/.ssh/config
-RUN chmod 600 /root/.ssh/config
-
 # Ansible / Molecule
 ENV ANSIBLE_VENV_DIR=/usr/local/ansible-venv
 RUN mkdir -p ${ANSIBLE_VENV_DIR}
@@ -100,6 +95,15 @@ RUN cd ${ANSIBLE_VENV_DIR} && \
 	chmod +x ./venv/bin/activate && \
 	./venv/bin/activate && \
 	python3 -m pip install -r requirements.txt
+
+# Configure SSH
+RUN mkdir -p /root/.ssh
+COPY ssh.config /root/.ssh/config
+RUN chmod 600 /root/.ssh/config
+
+# Configure .bash_profile
+COPY .bash_profile /root/.bash_profile
+COPY .bash_aliases /root/.bash_aliases
 
 # Configure test directory
 RUN mkdir -p /usr/local/goss-tests

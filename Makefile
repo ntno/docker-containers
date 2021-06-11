@@ -10,7 +10,7 @@ push: build
 	docker push $(tag)
 
 launch: check-app
-	docker run -it $(tag) /bin/bash
+	docker run -it $(tag) /bin/bash -l
 
 test: build
 	docker kill $(test_container_name) || true
