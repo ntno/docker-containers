@@ -88,5 +88,19 @@ RUN sha256sum -cs packer_${PACKER_VERSION}_SHA256SUMS
 RUN unzip packer_${PACKER_VERSION}_linux_amd64.zip -d /bin
 RUN rm -f packer_${PACKER_VERSION}_linux_amd64.zip
 
+# install goss
+# See https://github.com/aelsabbahy/goss/releases for release versions
+ENV GOSS_VERSION=v0.3.10
+RUN curl -L "https://github.com/aelsabbahy/goss/releases/download/${GOSS_VERSION}/goss-linux-amd64" -o /usr/local/bin/goss
+RUN chmod +rx /usr/local/bin/goss
+
+# Configure .bash_profile
+COPY .bash_profile /root/.bash_profile
+COPY .bash_aliases /root/.bash_aliases
+
+# Configure test directory
+RUN mkdir -p /usr/local/goss-tests
+COPY tests/* /usr/local/goss-tests
+
 WORKDIR /usr/src
 CMD ["bash", "-l"]

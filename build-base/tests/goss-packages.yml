@@ -1,0 +1,35 @@
+package:
+  build-base:
+    installed: true
+  python3-dev:
+    installed: true
+  libffi-dev:
+    installed: true
+  openssl-dev:
+    installed: true
+  binutils:
+    installed: true
+  bash:
+    installed: true
+  make:
+    installed: true
+  wget:
+    installed: true
+  curl:
+    installed: true
+  unzip:
+    installed: true
+  zip:
+      installed: true
+  jq:
+    installed: true
+  git:
+    installed: true
+  gettext:
+      installed: true
+  python3:
+    installed: true
+  py3-virtualenv:
+    installed: true
+  groff:
+    installed: true
