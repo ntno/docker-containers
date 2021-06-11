@@ -92,7 +92,7 @@ command:
     exit-status: 0
     exec: "source /usr/local/ansible-venv/venv/bin/activate ; molecule --version"
     stdout:
-    - molecule 3.3.2 using python 3.8
+    - molecule 3.3.4 using python 3.8
     - ansible:2.11.1
     stderr: []
     timeout: 10000
