@@ -1,11 +1,10 @@
 alias make='make --no-print-directory'
-alias ls='ls -tr1cGFh'
-alias ll='ls -ltr -A -GFh'
+alias ls='ls -ltr --color=auto'
+alias ll='ls -Altr --color=auto'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
