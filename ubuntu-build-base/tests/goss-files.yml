@@ -4,8 +4,6 @@ file:
     mode: "0600"
     skip: false
     contains:
-    - AddKeysToAgent yes
-    - IdentityFile ~/.ssh/id_ed25519
     - AWS-StartSSHSession
   /root/.bash_profile:
     exists: true
