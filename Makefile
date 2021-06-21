@@ -22,6 +22,3 @@ check-app:
 ifndef app
 	$(error app is not set)
 endif
-
-
-# docker exec -i $(test_container_name) /bin/sh -c "/usr/local/$(app)/goss-tests"
