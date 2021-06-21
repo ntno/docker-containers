@@ -86,18 +86,20 @@ RUN cd /usr/local/bin && \
 	chmod 755 /usr/local/bin/buildenv && \
 	rm -rf /tmp/buildenv*
 
+# customizations 
+ENV CONFIG_DIR=/usr/local/ubuntu-build-base
+RUN mkdir -p ${CONFIG_DIR}
+
 # Ansible / Molecule
-ENV ANSIBLE_VENV_DIR=/usr/local/ansible-venv
-RUN mkdir -p ${ANSIBLE_VENV_DIR}
-COPY pip-requirements.txt ${ANSIBLE_VENV_DIR}/requirements.txt 
-RUN cd ${ANSIBLE_VENV_DIR} && \
+RUN mkdir -p ${CONFIG_DIR}/ansible-venv
+COPY pip-requirements.txt ${CONFIG_DIR}/ansible-venv/requirements.txt 
+RUN cd ${CONFIG_DIR}/ansible-venv && \
 	virtualenv venv && \
 	chmod +x ./venv/bin/activate && \
 	./venv/bin/activate && \
 	python3 -m pip install -r requirements.txt
 
-# Configure SSH
-RUN mkdir -p /root/.ssh
+# Add SSH Config Files
 COPY ssh.config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
 
@@ -106,8 +108,8 @@ COPY .bash_profile /root/.bash_profile
 COPY .bash_aliases /root/.bash_aliases
 
 # Configure test directory
-RUN mkdir -p /usr/local/goss-tests
-COPY tests/* /usr/local/goss-tests
+RUN mkdir -p ${CONFIG_DIR}/goss-tests
+COPY tests/* ${CONFIG_DIR}/goss-tests
 
 WORKDIR /usr/src
 CMD ["bash", "-l"]

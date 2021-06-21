@@ -94,13 +94,17 @@ ENV GOSS_VERSION=v0.3.10
 RUN curl -L "https://github.com/aelsabbahy/goss/releases/download/${GOSS_VERSION}/goss-linux-amd64" -o /usr/local/bin/goss
 RUN chmod +rx /usr/local/bin/goss
 
+# customizations 
+ENV CONFIG_DIR=/usr/local/alpine-build-base
+RUN mkdir -p ${CONFIG_DIR}
+
 # Configure .bash_profile
 COPY .bash_profile /root/.bash_profile
 COPY .bash_aliases /root/.bash_aliases
 
 # Configure test directory
-RUN mkdir -p /usr/local/goss-tests
-COPY tests/* /usr/local/goss-tests
+RUN mkdir -p ${CONFIG_DIR}/goss-tests
+COPY tests/* ${CONFIG_DIR}/goss-tests
 
 WORKDIR /usr/src
 CMD ["bash", "-l"]

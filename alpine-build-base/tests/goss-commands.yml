@@ -52,18 +52,10 @@ command:
     exit-status: 0
     exec: "eb --version"
     stdout:
-    - EB CLI 3.19.4
+    - EB CLI 3.20.0
     stderr: []
     timeout: 10000
     skip: false  
-  session-manager-plugin:
-    exit-status: 0
-    exec: "session-manager-plugin"
-    stdout:
-    - plugin was installed successfully
-    stderr: []
-    timeout: 10000
-    skip: false
   node-version:
     exit-status: 0
     exec: "node --version"
@@ -80,20 +72,3 @@ command:
     stderr: []
     timeout: 10000
     skip: false
-  ansible-venv-version:
-    exit-status: 0
-    exec: "source /usr/local/ansible-venv/venv/bin/activate ; ansible --version"
-    stdout:
-    - core 2.11.1
-    stderr: []
-    timeout: 10000
-    skip: false
-  molecule-venv-version:
-    exit-status: 0
-    exec: "source /usr/local/ansible-venv/venv/bin/activate ; molecule --version"
-    stdout:
-    - molecule 3.3.4 using python 3.8
-    - ansible:2.11.1
-    stderr: []
-    timeout: 10000
-    skip: false    
