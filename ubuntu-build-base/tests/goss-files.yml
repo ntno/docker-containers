@@ -1,18 +1,12 @@
 file:
-  /usr/local/ubuntu-build-base/.ssh/sm-config:
-    exists: true
-    mode: "0600"
-    skip: false
-    contains:
-    - AWS-StartSSHSession
-  /usr/local/ubuntu-build-base/.ssh/mac-config:
+  /root/.ssh/config:
     exists: true
     mode: "0600"
     skip: false
     contains:
     - AddKeysToAgent yes
-    - UseKeychain yes
     - IdentityFile ~/.ssh/id_ed25519
+    - AWS-StartSSHSession
   /root/.bash_profile:
     exists: true
     mode: "0644"

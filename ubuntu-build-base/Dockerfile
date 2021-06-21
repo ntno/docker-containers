@@ -100,11 +100,8 @@ RUN cd ${CONFIG_DIR}/ansible-venv && \
 	python3 -m pip install -r requirements.txt
 
 # Add SSH Config Files
-RUN mkdir -p ${CONFIG_DIR}/.ssh
-COPY sm-ssh.config ${CONFIG_DIR}/.ssh/sm-config
-COPY mac-ssh.config ${CONFIG_DIR}/.ssh/mac-config
-RUN chmod 600 ${CONFIG_DIR}/.ssh/sm-config
-RUN chmod 600 ${CONFIG_DIR}/.ssh/mac-config
+COPY ssh.config /root/.ssh/config
+RUN chmod 600 /root/.ssh/config
 
 # Configure .bash_profile
 COPY .bash_profile /root/.bash_profile
