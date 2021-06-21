@@ -1,0 +1,4 @@
+ansible~=4.0.0
+boto3~=1.17.84
+molecule~=3.3.2
+molecule-ec2~=0.3
