@@ -52,7 +52,7 @@ command:
     exit-status: 0
     exec: "eb --version"
     stdout:
-    - EB CLI 3.19.4
+    - EB CLI 3.20.0
     stderr: []
     timeout: 10000
     skip: false  
