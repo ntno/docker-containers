@@ -84,7 +84,7 @@ command:
     exit-status: 0
     exec: "source /usr/local/ubuntu-build-base/ansible-venv/venv/bin/activate ; ansible --version"
     stdout:
-    - core 2.11.1
+    - core 2.11.3
     stderr: []
     timeout: 10000
     skip: false
@@ -93,7 +93,7 @@ command:
     exec: "source /usr/local/ubuntu-build-base/ansible-venv/venv/bin/activate ; molecule --version"
     stdout:
     - molecule 3.3.4 using python 3.8
-    - ansible:2.11.1
+    - ansible:2.11.3
     stderr: []
     timeout: 10000
     skip: false    
