@@ -52,10 +52,18 @@ command:
     exit-status: 0
     exec: "eb --version"
     stdout:
-    - EB CLI 3.20.0
+    - EB CLI 3.20.2
     stderr: []
     timeout: 10000
     skip: false  
+  aws-cli-version:
+    exit-status: 0
+    exec: "aws --version"
+    stdout:
+    - aws-cli/2.2.38
+    stderr: []
+    timeout: 10000
+    skip: false      
   session-manager-plugin:
     exit-status: 0
     exec: "session-manager-plugin"
@@ -84,7 +92,7 @@ command:
     exit-status: 0
     exec: "source /usr/local/ubuntu-build-base/ansible-venv/venv/bin/activate ; ansible --version"
     stdout:
-    - core 2.11.3
+    - core 2.11.5
     stderr: []
     timeout: 10000
     skip: false
@@ -93,7 +101,7 @@ command:
     exec: "source /usr/local/ubuntu-build-base/ansible-venv/venv/bin/activate ; molecule --version"
     stdout:
     - molecule 3.3.4 using python 3.8
-    - ansible:2.11.3
+    - ansible:2.11.5
     stderr: []
     timeout: 10000
     skip: false    

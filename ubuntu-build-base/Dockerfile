@@ -112,4 +112,4 @@ RUN mkdir -p ${CONFIG_DIR}/goss-tests
 COPY tests/* ${CONFIG_DIR}/goss-tests
 
 WORKDIR /usr/src
-CMD ["bash", "-l"]
+CMD ["/bin/bash", "-l"]
