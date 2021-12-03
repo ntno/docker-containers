@@ -99,6 +99,12 @@ RUN cd ${CONFIG_DIR}/ansible-venv && \
 	./venv/bin/activate && \
 	python3 -m pip install -r requirements.txt
 
+# Github CLI
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+RUN apt update
+RUN apt install gh
+
 # Add SSH Config Files
 COPY ssh.config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config
