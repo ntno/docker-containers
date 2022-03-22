@@ -100,7 +100,7 @@ command:
     exit-status: 0
     exec: "source /usr/local/ubuntu-build-base/ansible-venv/venv/bin/activate ; molecule --version"
     stdout:
-    - molecule 3.3.4 using python 3.8
+    - molecule 3.4.1 using python 3.8
     - ansible:2.11.9
     - ec2:0.4
     stderr: []
