@@ -33,9 +33,9 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install \
 RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
 RUN apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 
-ENV TERRAFORM_VERSION=0.14.5
-ENV PACKER_VERSION=1.7.2
-ENV VAULT_VERSION=1.7.2
+ENV TERRAFORM_VERSION=1.0.11
+ENV PACKER_VERSION=1.7.8
+ENV VAULT_VERSION=1.7.8
 RUN apt-get update && apt-get install \
     terraform=${TERRAFORM_VERSION} \
     packer=${PACKER_VERSION} \

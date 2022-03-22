@@ -28,7 +28,7 @@ command:
     exit-status: 0
     exec: "terraform --version"
     stdout:
-    - v0.14.5
+    - v1.0.11
     stderr: []
     timeout: 10000
     skip: false
@@ -36,7 +36,7 @@ command:
     exit-status: 0
     exec: "packer --version"
     stdout:
-    - 1.7.2
+    - 1.7.8
     stderr: []
     timeout: 10000
     skip: false    
