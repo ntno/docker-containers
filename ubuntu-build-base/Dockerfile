@@ -1,5 +1,5 @@
-FROM ubuntu:groovy
-
+FROM ubuntu:focal
+ENV DEBIAN_FRONTEND=nonintercative
 RUN apt-get update && apt-get -y upgrade && apt-get -y install \
     binutils \
     build-essential \
