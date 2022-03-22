@@ -28,7 +28,7 @@ command:
     exit-status: 0
     exec: "terraform --version"
     stdout:
-    - v0.14.5
+    - v1.0.11
     stderr: []
     timeout: 10000
     skip: false
@@ -36,7 +36,7 @@ command:
     exit-status: 0
     exec: "packer --version"
     stdout:
-    - 1.7.2
+    - 1.7.8
     stderr: []
     timeout: 10000
     skip: false    
@@ -52,7 +52,7 @@ command:
     exit-status: 0
     exec: "eb --version"
     stdout:
-    - EB CLI 3.20.2
+    - EB CLI 3.20.3
     stderr: []
     timeout: 10000
     skip: false  
@@ -60,7 +60,7 @@ command:
     exit-status: 0
     exec: "aws --version"
     stdout:
-    - aws-cli/2.2.38
+    - aws-cli/2.4.27
     stderr: []
     timeout: 10000
     skip: false      
@@ -92,7 +92,7 @@ command:
     exit-status: 0
     exec: "source /usr/local/ubuntu-build-base/ansible-venv/venv/bin/activate ; ansible --version"
     stdout:
-    - core 2.11.5
+    - core 2.11.9
     stderr: []
     timeout: 10000
     skip: false
@@ -100,8 +100,9 @@ command:
     exit-status: 0
     exec: "source /usr/local/ubuntu-build-base/ansible-venv/venv/bin/activate ; molecule --version"
     stdout:
-    - molecule 3.3.4 using python 3.8
-    - ansible:2.11.5
+    - molecule 3.4.1 using python 3.8
+    - ansible:2.11.9
+    - ec2:0.4
     stderr: []
     timeout: 10000
     skip: false    
@@ -109,7 +110,7 @@ command:
     exit-status: 0
     exec: "gh --version"
     stdout:
-    - 2.3.
+    - 2.6.
     stderr: []
     timeout: 10000
     skip: false    
