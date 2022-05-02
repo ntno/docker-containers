@@ -70,6 +70,10 @@ RUN cd /tmp && \
     rm -rf nodesource_setup.sh
 RUN apt-get update && apt-get -y install nodejs
 
+# Heroku CLI
+RUN cd /tmp && \
+    curl https://cli-assets.heroku.com/install.sh | sh
+
 # Goss
 # See https://github.com/aelsabbahy/goss/releases for release versions
 ENV GOSS_VERSION=v0.3.10
