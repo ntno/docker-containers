@@ -8,7 +8,7 @@ package:
   gettext:
     installed: false
   git:
-    installed: false
+    installed: true
   #installed by build-essential
   gnupg:
     installed: true

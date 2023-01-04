@@ -16,6 +16,14 @@ command:
     stderr: []
     timeout: 10000
     skip: false
+  git-version:
+    exit-status: 0
+    exec: "git --version"
+    stdout:
+    - git version
+    stderr: []
+    timeout: 10000
+    skip: false      
   buildenv-version:
     exit-status: 0
     exec: "buildenv --version"
