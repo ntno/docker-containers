@@ -1,0 +1,35 @@
+command:
+  python-version:
+    exit-status: 0
+    exec: "python --version"
+    stdout:
+    - Python 3
+    stderr: []
+    timeout: 10000
+    skip: false
+  pip-version:
+    exit-status: 0
+    exec: "pip --version"
+    stdout:
+    - pip
+    - python
+    stderr: []
+    timeout: 10000
+    skip: false
+  buildenv-version:
+    exit-status: 0
+    exec: "buildenv --version"
+    stdout:
+    - 0.5.7
+    stderr: []
+    timeout: 10000
+    skip: false
+  goss-version:
+    exit-status: 0
+    exec: "goss --version"
+    stdout:
+    - v0.3.10
+    stderr: []
+    timeout: 10000
+    skip: false  
+ 

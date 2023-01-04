@@ -1,0 +1,13 @@
+file:
+  /root/.bash_profile:
+    exists: true
+    mode: "0644"
+    skip: false
+    contains:
+    - bash_aliases
+  /root/.bash_aliases:
+    exists: true
+    mode: "0644"
+    skip: false
+    contains:
+    - alias make

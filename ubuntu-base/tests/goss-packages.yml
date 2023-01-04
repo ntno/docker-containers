@@ -1,0 +1,57 @@
+package:
+  binutils:
+    installed: true
+  build-essential:
+    installed: true
+  curl:
+    installed: true
+  gettext:
+    installed: false
+  git:
+    installed: false
+  #installed by build-essential
+  gnupg:
+    installed: true
+  groff:
+    installed: false
+  jq:
+    installed: true
+  less:
+    installed: true
+  libbz2-dev:
+    installed: false
+  libffi-dev:
+    installed: false
+  libncurses-dev:
+    installed: false
+  libreadline-dev:
+    installed: false
+  libsqlite3-dev:
+    installed: false
+  libssl-dev:
+    installed: false
+  make:
+    installed: true
+  nodejs:
+    installed: false
+  python3-dev:
+    installed: true
+  python3-doc:
+    installed: true
+  python3-pip:
+    installed: true
+  python3-venv:
+    installed: true
+  screen: 
+    installed: false
+  software-properties-common:
+    installed: true
+  unzip:
+    installed: true
+  wget:
+    installed: true
+  zip:
+    installed: true
+  #installed by python3-dev
+  zlib1g-dev:
+    installed: true

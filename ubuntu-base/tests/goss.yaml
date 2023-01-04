@@ -1,0 +1,4 @@
+gossfile:
+  goss-commands.yml: {}
+  goss-packages.yml: {}
+  goss-files.yml: {}
